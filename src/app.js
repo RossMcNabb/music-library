@@ -8,8 +8,4 @@ app.get("/", (request, response)=> {
 
 app.use(express.json());
 
-app.listen(3000, ()=> {
-    console.log ("Server running on port 4000")
-})
-
 module.exports = app;
