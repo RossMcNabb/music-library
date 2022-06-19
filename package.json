@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "SET NODE_ENV=production & nodemon servis.js",
-    "startdev": "nodemon servis.js"
+    "prestart": "node utils/create-database.js",
+    "start": "nodemon -r dotenv/config index.js",
+    "pretest":"node utils/create-database.js test",
+    "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./tests/test-setup.js",
+    "posttest":"node utils/drop-database.js"
   },
+
   "repository": {
     "type": "git",
     "url": "https://github.com/RossMcNabb/music-library.git",
@@ -22,8 +25,11 @@
   },
   "homepage": "https://github.com/RossMcNabb/music-library#readme",
   "devDependencies": {
+    "chai": "^4.3.6",
     "eslint": "^8.17.0",
-    "nodemon": "^2.0.16"
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
