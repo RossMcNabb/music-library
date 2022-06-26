@@ -1,11 +1,10 @@
 const express = require('express');
+const artistRouter = require('./routes/artists');
 
 const app = express();
-app.get("/", (request, response)=> {
-    response.send("hello world");
-}
-)
 
 app.use(express.json());
+
+app.use('/artist', artistRouter);
 
 module.exports = app;
