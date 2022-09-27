@@ -6,11 +6,10 @@
   "scripts": {
     "prestart": "node utils/create-database.js",
     "start": "nodemon -r dotenv/config index.js",
-    "pretest":"node utils/create-database.js test",
+    "pretest": "node utils/create-database.js test",
     "test": "mocha tests/**/*.js --exit --recursive --timeout 60000 --file ./tests/test-setup.js",
-    "posttest":"node utils/drop-database.js"
+    "posttest": "node utils/drop-database.js"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/RossMcNabb/music-library.git",
@@ -28,7 +27,7 @@
     "chai": "^4.3.6",
     "eslint": "^8.17.0",
     "mocha": "^10.0.0",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.20",
     "supertest": "^6.2.3"
   },
   "dependencies": {
